@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Mission1 from './components/Mission1';
 import Mission2 from './components/Mission2';
