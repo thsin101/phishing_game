@@ -41,7 +41,7 @@ http://bit.ly/sicher-kein-betrug-iphone-gewinn
 Beeilen Sie sich, das Angebot ist nur 24 Stunden gültig!
 
 Mit freundlichen Grüßen,
-Ihr Gewinnspiel-Team`, isPhish: true, date: '4 hours ago', explanation: "Diese E-Mail ist ein klassischer Phishing-Versuch. Anzeichen dafür sind: eine unseriöse Absenderadresse, die dringende Handlungsaufforderung (innerhalb von 24 Stunden), ein verdächtiger Link (Bitly-Link) und ein zu gutes Angebot, um wahr zu sein." },
+Ihr Gewinnspiel-Team`, isPhish: true, date: '4 hours ago', explanation: "Diese E-Mail ist ein klassischer Phishing-Versuch. Anzeichen dafür sind: eine unseriöse Absenderadresse, eine ungewöhnliche Begrüßung, die dringende Handlungsaufforderung (innerhalb von 24 Stunden), ein verdächtiger Link (Bitly-Link) und ein zu gutes Angebot, um wahr zu sein." },
   { id: 3, from: 'Killian.Schuster@QFCConsulting.com', cc: '', subject: 'Verkaufszahlen letztes Quartal', body: `Hallo,
 
 wenn du Zeit hast, bräuchte ich bitte die Verkaufszahlen für das letzte Phoenix-Projekt. Kannst du mir die bitte eben raussuchen? 
@@ -51,7 +51,7 @@ Lade die Datei bitte auf unserem Sharepoint hoch: https://sharepoint.qfcconsulti
 
 Danke,
 Killian Schuster
-Director`, isPhish: true, date: '6 hours ago', explanation: "Diese E-Mail ist ein Spear-Phishing-Versuch. Achten Sie auf die Absenderadresse: 'QFCConsulting.com' statt 'QFConsulting.com'. Angreifer nutzen oft solche kleinen Abweichungen, um sich als vertrauenswürdige Kollegen auszugeben und an sensible Daten zu gelangen." },
+Director`, isPhish: true, date: '6 hours ago', explanation: "Diese E-Mail ist ein Spear-Phishing-Versuch. Achten Sie auf die Absenderadresse: 'QFCConsulting.com' statt 'QFConsulting.com'. Angreifende nutzen oft solche kleinen Abweichungen, um sich als vertrauenswürdige Kollegen auszugeben und an sensible Daten zu gelangen." },
   { id: 2, from: 'Lucas.Brandt@QFConsulting.com', cc: '', subject: 'Momentane Lage von Cyberskandale', body: `Hallo,
 
 ich bereite eine Präsentation zur aktuellen Lage der Cyberkriminalität vor. Könntest du mir bitte die Folien vom letzten meeting zukommen lassen? Ich bräuchte sie bis heute Nachmittag.
@@ -97,7 +97,9 @@ const Mission1: React.FC<Props> = ({ onClose }) => {
     <div className="mission1-container">
       <div className="mission1-header">
         <h2>Mission 1: Wo war die Sicherheitslücke?</h2>
-        <p>Untersuchen den Posteingang und identifizieren die Phishing-E-Mails</p>
+        <p><strong>Aufgabe:</strong> Untersuche den Posteingang und identifizieren die Phishing-E-Mails. <strong>Phishing</strong> ist eine Form des Online Betrugs, bei der Angreifende versuchen,
+          vertrauliche Informationen wie Passwörter oder Zugangsdaten zu stehlen, indem sie sich als vertrauenswürdige Quelle ausgeben. Achte auf Verdächtiges in der Mail
+        </p>
       </div>
       <div className="mission1-content">
         <div className="email-list-container">

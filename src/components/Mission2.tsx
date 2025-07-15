@@ -8,11 +8,15 @@ const Mission2: React.FC<Props> = ({ onClose }) => {
   const [clicked, setClicked] = useState<Record<string, boolean>>({});
   const [showInstruction, setShowInstruction] = useState(true); // Zustand für das Anleitungsfenster
 
-  const explanations: Record<string, string> = {
-    children: "Die Angabe von Familieninformationen kann für Social Engineering missbraucht werden. Social Engineering bezeichnet den zwischenmenschlichen Angriff auf die Schwachstelle Mensch, bei dem durch Täuschung sicherheitsrelevante Informationen erschlichen werden. Insbesondere persönliche Informationen können genutzt werden, um Gefühle oder Mitgefühl zu manipulieren.",
-    vacation: "Die öffentliche Bekanntgabe von Abwesenheiten wie Urlaub kann Angreifern ermöglichen, unbemerkt gezielte Attacken durchzuführen.",
+  const explanations: Record<string, string | JSX.Element> = {
+    children: (
+      <>
+        Die Angabe von Familieninformationen kann für <strong>Social Engineering</strong> missbraucht werden. <strong>Social Engineering</strong> bezeichnet den zwischenmenschlichen Angriff auf die Schwachstelle Mensch, bei dem durch Täuschung sicherheitsrelevante Informationen erschlichen werden. Insbesondere persönliche Informationen können genutzt werden, um Gefühle oder Mitgefühl zu manipulieren.
+      </>
+    ),
+    vacation: "Die öffentliche Bekanntgabe von Abwesenheiten wie Urlaub kann Angreifende ermöglichen, unbemerkt gezielte Attacken durchzuführen.",
     birthday: "Das Teilen des genauen Geburtstags und Alters kann Identitätsdieben helfen, Sicherheitsfragen zu beantworten oder Konten zu kompromittieren. Phishing-Angriffe wie in der Mail zuvor können durch solche Informationen verstärkt werden.",
-    project: "Die Nennung interner Projektnamen wie 'Phoenix' kann Angreifern wertvolle Informationen für gezielte Spear-Phishing-Angriffe auf das Unternehmen liefern."
+    project: "Die Nennung interner Projektnamen wie 'Phoenix' kann Angreifern wertvolle Informationen für gezielte Phishing-Angriffe auf das Unternehmen liefern."
   };
 
   const handleClick = (id: string) => {
@@ -91,9 +95,9 @@ const Mission2: React.FC<Props> = ({ onClose }) => {
       {showInstruction && (
         <div className="instruction-overlay">
           <div className="instruction-modal">
-            <h2>Ihre Aufgabe:</h2>
+            <h2>Deine Aufgabe:</h2>
             <p>Das ist das öffentliche Social Media Profil von Killian Schuster</p>
-            <p>Klicken auf alle Informationen, die ein Angreifer für einen gezielten Phishing-Angriff missbrauchen könnte.</p>
+            <p>Klicke auf alle Informationen, die Angreifende für einen gezielten Phishing-Angriff missbrauchen könnten.</p>
             <button onClick={() => setShowInstruction(false)}>Verstanden</button>
           </div>
         </div>

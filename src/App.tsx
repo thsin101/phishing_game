@@ -15,6 +15,7 @@ const App: React.FC = () => {
   const [showIntro, setShowIntro] = useState(true); // Zustand für das Intro-Fenster
   const [showPostMission1Modal, setShowPostMission1Modal] = useState(false); // Zustand für das Fenster nach Mission 1
   const [showPostMission2Modal, setShowPostMission2Modal] = useState(false); // Zustand für das Fenster nach Mission 2
+  const [showPostMission4Modal, setShowPostMission4Modal] = useState(false); // Zustand für das Fenster nach Mission 4
 
   const openMission = (key: MissionKey) => setActive(key);
 
@@ -24,11 +25,13 @@ const App: React.FC = () => {
       newCompleted.add(active);
       setCompletedMissions(newCompleted);
 
-      // Wenn eine Mission abgeschlossen wird, zeige das passende Fenster
+      // Fenster nach Mission 1, 2, 4 anzeigen
       if (active === 'mission1') {
         setShowPostMission1Modal(true);
       } else if (active === 'mission2') {
         setShowPostMission2Modal(true);
+      } else if (active === 'mission4') {
+        setShowPostMission4Modal(true);
       }
     }
     setActive(null);
@@ -45,10 +48,10 @@ const App: React.FC = () => {
             <div className="intro-text">
               <h2>Verdächtige Aktivitäten! Unterstützung gebraucht</h2>
               <p>
-                Ich bin der KI-Verteidigungsroboter dieses Unternehmens. Meine Sensoren haben verdächtige Aktivitäten in unserem Netzwerk festgestellt, die auf einen gezielten Angriffsversuch hindeuten.
+                Hi, ich bin der <strong>KI-Verteidigungsroboter Jerry</strong> des Unternehmens, dem jedem Studenten im Unternehmen zugeordnet wird. Angreifende haben dich ins Visier genommen, um Informationen zu sammeln.
               </p>
               <p>
-                Ich habe die Lage analysiert und eine Zusammenfassung erstellt. Lassen Sie uns gemeinsam herausfinden, was hier vor sich geht!
+                Ich habe die Lage analysiert und eine Zusammenfassung erstellt. Lass uns gemeinsam herausfinden, wieso du das Ziel bist! Es gibt insgesamt <strong>4 Missionen</strong>, die du spielen kannst. Jede Mission hilft mir, die Angriffe besser zu verstehen und unser Unternehmen zu schützen.
               </p>
             </div>
             <button onClick={() => setShowIntro(false)} className="intro-button">Weiter gehts!</button>
@@ -63,10 +66,10 @@ const App: React.FC = () => {
             <div className="intro-text">
               <h2>Gut gemacht!</h2>
               <p>
-                Sie haben die verdächtigen E-Mails identifiziert. Killian Schuster wurde als Ziel ausgewählt, weil er sensible Informationen über das Unternehmen hat und in der Vergangenheit bereits Opfer von Phishing-Angriffen wurde.
+                Du hast die verdächtigen E-Mails identifiziert. Anscheinend haben Angreifende Killian Schuster als Ziel ausgewählt und ihn imitiert, um durch dich an sensible Informationen zu gelangen.
               </p>
               <p>
-                Finden wir heraus, wieso diese Person ins Visier genommen wurde. Ich analysiere das Internet nach Informationen über Thomas Schuster.
+                Finden wir heraus, wieso diese Person ins Visier genommen wurde. Ich analysiere das Internet nach Informationen über Killian Schuster.
               </p>
             </div>
             <button onClick={() => setShowPostMission1Modal(false)} className="intro-button">Verstanden!</button>
@@ -81,10 +84,25 @@ const App: React.FC = () => {
             <div className="intro-text">
               <h2>Notfall detektiert!</h2>
               <p>
-                Momentan wird das Unternehmen von Cyberangriffen anvisiert! Ich muss umgehend reagieren. Bereiten Sie einen Sicherheitsbericht vor, um die Künstliche Intelligenz zu verbessern und zukünftige Angriffe zu verhindern.
+                Momentan wird das Unternehmen von Cyberangriffen anvisiert! Ich muss umgehend reagieren. Bereite einen Sicherheitsbericht vor, um die Künstliche Intelligenz zu verbessern und zukünftige Angriffe zu verhindern.
               </p>
             </div>
             <button onClick={() => setShowPostMission2Modal(false)} className="intro-button">Weiter</button>
+          </div>
+        </div>
+      )}
+
+      {showPostMission4Modal && (
+        <div className="intro-overlay">
+          <div className="intro-modal">
+            <img src={robotImage} alt="Roboter Jeremy" className="intro-robot-image" />
+            <div className="intro-text">
+              <h2>Mission abgeschlossen!</h2>
+              <p>
+                Du kannst jetzt zur Studie zurückkehren, um die Post-Studie zu starten und die Erkenntnisse zu teilen. Danke für die Teilnahme!
+              </p>
+            </div>
+            <button onClick={() => setShowPostMission4Modal(false)} className="intro-button">Zurück zur Studie</button>
           </div>
         </div>
       )}
